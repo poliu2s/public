@@ -42,10 +42,15 @@ import ubic.pubmedgate.Config;
 public class DuplicateXMLParses {
     protected static Log log = LogFactory.getLog( DuplicateXMLParses.class );
 
-    public static void main( String[] args ) throws Exception {
+    public static void main( String[] args )/* throws Exception*/ {
         DuplicateXMLParses parser;
 //        parser = new DuplicateXMLParses( "WhiteTextUnseen" );
-        parser = new DuplicateXMLParses( "WhiteTextUnseenMScan2" );
+        try {
+			parser = new DuplicateXMLParses( "WhiteTextNegFixFullCountCheck" );
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 //        parser = new DuplicateXMLParses( "WhiteTextNegFixTrain" );
 

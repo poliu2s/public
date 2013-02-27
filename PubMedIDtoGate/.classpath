@@ -7,7 +7,7 @@
 	<classpathentry kind="var" path="M2_REPO/com/hp/hpl/jena/arq/2.3/arq-2.3.jar"/>
 	<classpathentry kind="var" path="M2_REPO/colt/colt/1.2.0/colt-1.2.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/commons-configuration/commons-configuration/1.1/commons-configuration-1.1.jar"/>
-	<classpathentry kind="var" path="M2_REPO/dom4j/dom4j/1.4/dom4j-1.4.jar"/>
+	<classpathentry kind="var" path="M2_REPO/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar"/>
 	<classpathentry kind="var" path="M2_REPO/concurrent/concurrent/1.3.4/concurrent-1.3.4.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/ibm/icu/icu4j/3.4.4/icu4j-3.4.4.jar"/>
@@ -15,7 +15,7 @@
 	<classpathentry kind="var" path="M2_REPO/jdom/jdom/1.0/jdom-1.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/hp/hpl/jena/jena/2.5.6/jena-2.5.6.jar"/>
 	<classpathentry kind="var" path="M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar"/>
-	<classpathentry kind="var" path="M2_REPO/log4j/log4j/1.2.13/log4j-1.2.13.jar"/>
+	<classpathentry kind="var" path="M2_REPO/log4j/log4j/1.2.14/log4j-1.2.14.jar"/>
 	<classpathentry kind="var" path="M2_REPO/opencsv/opencsv/1.3/opencsv-1.3.jar"/>
 	<classpathentry kind="var" path="M2_REPO/xerces/xercesImpl/2.8.1/xercesImpl-2.8.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar"/>
@@ -23,7 +23,7 @@
 	<classpathentry kind="var" path="M2_REPO/umls/mmsObjects/1.0/mmsObjects-1.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/umls/mms/1.0/mms-1.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/umls/mmtxProject/2.4C/mmtxProject-2.4C.jar"/>
-	<classpathentry kind="var" path="M2_REPO/baseCode/baseCode/1.0.11-SNAPSHOT/baseCode-1.0.11-SNAPSHOT.jar"/>
+	<classpathentry kind="var" path="M2_REPO/baseCode/baseCode/1.0.14-SNAPSHOT/baseCode-1.0.14-SNAPSHOT.jar"/>
 	<classpathentry kind="var" path="M2_REPO/gate/gate/5.0/gate-5.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/gate/kea-plugin/1.0/kea-plugin-1.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/mallet/mallet/2.0-RC2/mallet-2.0-RC2.jar"/>
@@ -39,5 +39,6 @@
 	<classpathentry kind="var" path="M2_REPO/gemma/gemma-util/1.7-SNAPSHOT/gemma-util-1.7-SNAPSHOT.jar"/>
 	<classpathentry kind="var" path="M2_REPO/commons-collections/commons-collections/3.0/commons-collections-3.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/whitetext/GATEPlugin/1.0/GATEPlugin-1.0.jar"/>
+	<classpathentry kind="var" path="M2_REPO/jaxen/jaxen/1.1/jaxen-1.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -128,7 +128,7 @@ public class SLOutputReader {
             matrix.setByKeys( pair, "prediction", scores.get( pair ) );
             matrix.setByKeys( pair, "label", truth.get( pair ) );
         }
-        Util.writeRTable( baseFolder + "/predictionsForR.txt", matrix );
+        Util.writeRTable( baseFolder + System.getProperty( "file.separator" ) + "predictionsForR.txt", matrix );
     }
 
     public List<String> getTrueNegatives() {
@@ -160,8 +160,10 @@ public class SLOutputReader {
         scores = new HashMap<String, Double>();
         truth = new HashMap<String, Double>();
 
-        String predictionFile = baseFolder + trainingSet + "/" + testingSet + ".predict";
-        String corpusFile = baseFolder + testingSet + "/" + "corpus.txt";
+        // String predictionFile = baseFolder + trainingSet + System.getProperty( "file.separator" ) + testingSet + ".predict";
+        String predictionFile = baseFolder + trainingSet + System.getProperty( "file.separator" ) + testingSet+ ".predict";
+        String corpusFile = baseFolder + testingSet + System.getProperty( "file.separator" ) + "corpus.txt";
+        
 
         log.info( "Prediction file:" + predictionFile );
         log.info( "Corpus file:" + corpusFile );
@@ -170,7 +172,13 @@ public class SLOutputReader {
         CSVReader corpusReader = new CSVReader( new FileReader( corpusFile ), '\t' );
         List<String[]> predictionLines = predictionReader.readAll();
         List<String[]> corpusLines = corpusReader.readAll();
+        
+        
         int size = predictionLines.size();
+        
+        log.info( "Prediction Lines: " + predictionLines.size());
+        log.info( "Corpus Lines: " + corpusLines.size() );
+        
         if ( corpusLines.size() != size ) {
             throw new RuntimeException( "Error, line count is not equal" );
         }
@@ -182,11 +190,22 @@ public class SLOutputReader {
             double score = Double.parseDouble( predictionStringScore );
             scores.put( pairID, score );
 
-            // assume all false
-            truth.put( pairID, 0d );
+            
+            // Leon's previous code (that assumed all false):
+            	// assume all false
+            	//truth.put( pairID, 0d );
+            
+            //Poedit
+            double truthScore = Double.parseDouble( predictionLines.get( i )[1]);
+            truth.put( pairID , truthScore );
 
         }
 
+        
+        System.out.println( "Prediction Lines: " + predictionLines.size());
+        System.out.println( "Corpus Lines: " + corpusLines.size() );
+        //Thread.sleep(4000);
+        
         log.info( "Done reading, pair count:" + size );
 
     }
@@ -247,15 +266,29 @@ public class SLOutputReader {
         // );
         //
         // String SLFolder = Config.config.getString( "whitetextweb.SLResults" );
-        String folder = "/home/leon/ppi-benchmark/Saved Results/SL/CV/WhiteTextNegFixFull/predict/WhiteTextNegFixFull";
+        
+        // Leon's original:
+        //String folder = "/home/leon/ppi-benchmark/Saved Results/SL/CV/WhiteTextNegFixFull/predict/WhiteTextNegFixFull";
 
+        // Po's modified
+        //String folder = "C:\\Users\\Po Liu\\SkyDrive\\UBC\\CPSC 448\\My Project\\Saved Results\\WhiteTextUnseenEval - CV\\predict\\WhiteTextUnseenEval";
+        String folder = "C:\\Users\\Po Liu\\Desktop\\CC";
+        
         // GateInterface p2g = new GateInterface();
         // p2g.setUnSeenCorpNull();
         // p2g.setNamedCorpNull( "PubMedUnseenJNChem" );
         // p2g.setNamedCorpNull( "PubMedUnseenJCN" );
         // p2g.setNamedCorpNull( "PubMedUnseenMScan1" );
-
-        SLOutputReader reader = new SLOutputReader( new File( folder ) );
+        
+        // This code is used for CV
+        //SLOutputReader reader = new SLOutputReader( new File( folder ) );
+        
+        
+        // This is used for CC
+        String baseFolder = "C:\\Users\\Po Liu\\Desktop\\CC - Neg LLL\\corpus\\";
+        String trainingSet = "WhiteTextNegFixFullCountCheck";
+        String testingSet = "LLL";
+        SLOutputReader reader = new SLOutputReader( trainingSet, testingSet, baseFolder );
 
         // AirolaXMLReader XMLReader = new AirolaXMLReader( airolaXML, p2g, annotationSet );
 
@@ -265,6 +298,8 @@ public class SLOutputReader {
             log.info( pair );
             double score = reader.getScores().get( pair );
         }
+        reader.writeRTable();
+        
         log.info( "DONE" );
 
     }
